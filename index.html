@@ -4,54 +4,104 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PMPS · Portafolio Comercial</title>
-  <meta name="description" content="Fabricante de productos químicos especializados para limpieza y desinfección. ISO 22000:2018. Distribuido por Operadora Química Menlun." />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="https://pmps.com.mx/wp-content/uploads/2025/12/cropped-PMPS-BLANCO-270x270.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Inter', sans-serif; }
-    .nav-logo .logo-text { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: 0; }
-    .btn-home {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 8px 18px;
-      background: transparent;
-      border: 1.5px solid rgba(255,255,255,0.45);
-      border-radius: 6px;
-      color: rgba(255,255,255,0.9);
-      font-size: 12.5px;
-      font-weight: 500;
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, border-color 0.2s, color 0.2s;
-      white-space: nowrap;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; background: #f4f6f9; color: #1a2744; font-size: 15px; line-height: 1.6; }
+
+    .navbar { position: sticky; top: 0; z-index: 100; background: #0d2e5e; border-bottom: 2px solid #00b4d8; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-links { display: flex; align-items: center; gap: 22px; list-style: none; }
+    .nav-links a { color: rgba(255,255,255,0.75); text-decoration: none; font-size: 13px; font-weight: 500; }
+    .nav-links a:hover { color: #00b4d8; }
+    .btn-home { display: inline-flex; align-items: center; gap: 7px; padding: 8px 18px; background: transparent; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 6px; color: rgba(255,255,255,0.9); font-size: 12.5px; font-weight: 500; text-decoration: none; font-family: 'Inter', sans-serif; }
+    .btn-home:hover { background: rgba(255,255,255,0.1); color: #fff; }
+    .btn-home svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .hero { background: #0d2e5e; padding: 70px 5% 60px; }
+    .hero-inner { max-width: 640px; }
+    .hero-badge { display: inline-flex; align-items: center; background: rgba(0,180,216,0.15); border: 1px solid rgba(0,180,216,0.3); color: #00b4d8; font-size: 12px; font-weight: 500; padding: 5px 14px; border-radius: 20px; margin-bottom: 20px; }
+    .hero h1 { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 42px; color: #fff; line-height: 1.15; margin-bottom: 16px; }
+    .hero h1 span { color: #00b4d8; }
+    .hero p { color: rgba(255,255,255,0.65); font-size: 16px; margin-bottom: 32px; max-width: 480px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-primary { background: #00b4d8; color: #0a2244; padding: 12px 26px; border-radius: 25px; font-size: 14px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 7px; border: none; font-family: 'Inter', sans-serif; }
+    .btn-primary:hover { background: #0096b7; }
+    .btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.35); padding: 12px 26px; border-radius: 25px; font-size: 14px; text-decoration: none; display: inline-flex; align-items: center; gap: 7px; font-family: 'Inter', sans-serif; }
+    .btn-outline:hover { border-color: #00b4d8; color: #00b4d8; }
+
+    .section { padding: 60px 5%; }
+    .section-alt { background: #fff; }
+    .section-dark { background: #0d2e5e; color: #fff; }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #00b4d8; margin-bottom: 10px; }
+    .section-title { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 28px; color: #1a2744; margin-bottom: 10px; }
+    .section-dark .section-title { color: #fff; }
+    .section-sub { color: #64748b; font-size: 15px; margin-bottom: 40px; max-width: 520px; }
+    .section-dark .section-sub { color: rgba(255,255,255,0.6); }
+
+    .catalogo-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+    .search-wrapper { position: relative; }
+    .search-wrapper svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: #64748b; width: 16px; height: 16px; }
+    #buscador { border: 1px solid #e2e8f0; border-radius: 25px; padding: 9px 16px 9px 40px; font-size: 13px; font-family: 'Inter', sans-serif; width: 240px; outline: none; background: #fff; }
+    #buscador:focus { border-color: #00b4d8; }
+    .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+    .pill { background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 6px 16px; font-size: 12px; font-weight: 500; color: #64748b; cursor: pointer; font-family: 'Inter', sans-serif; }
+    .pill:hover { border-color: #00b4d8; color: #0d2e5e; }
+    .pill.active { background: #0d2e5e; color: #fff; border-color: #0d2e5e; }
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-bottom: 32px; }
+    .prod-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; display: flex; flex-direction: column; transition: transform 0.2s, box-shadow 0.2s; }
+    .prod-card:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.08); }
+    .prod-cat-pill { display: inline-block; font-size: 10px; font-weight: 600; padding: 3px 10px; border-radius: 10px; margin-bottom: 12px; text-transform: uppercase; }
+    .prod-nombre { font-weight: 700; font-size: 17px; color: #0d2e5e; margin-bottom: 4px; }
+    .prod-subtitulo { font-size: 11px; font-weight: 600; color: #0096b7; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .prod-desc { font-size: 12.5px; color: #64748b; line-height: 1.5; flex: 1; }
+    .prod-footer { margin-top: 14px; padding-top: 12px; border-top: 1px solid #e2e8f0; font-size: 11px; color: #64748b; display: flex; align-items: center; gap: 5px; }
+    .no-resultados { text-align: center; padding: 60px 20px; color: #64748b; grid-column: 1/-1; }
+    .counter { font-size: 13px; color: #64748b; margin-bottom: 16px; }
+    .counter span { font-weight: 600; color: #0d2e5e; }
+
+    .servicios-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .serv-card { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 24px 20px; }
+    .serv-card:hover { background: rgba(255,255,255,0.12); }
+    .serv-icon { font-size: 28px; margin-bottom: 14px; }
+    .serv-nombre { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+    .serv-desc { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.45; }
+
+    .entregas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
+    .ent-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px 16px; text-align: center; }
+    .ent-icon { font-size: 28px; margin-bottom: 10px; }
+    .ent-val { font-weight: 700; font-size: 22px; color: #0d2e5e; margin-bottom: 4px; }
+    .ent-lbl { font-size: 12px; color: #64748b; }
+
+    footer { background: #0a2244; padding: 48px 5% 24px; border-top: 3px solid #00b4d8; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+    .footer-tagline { color: rgba(255,255,255,0.45); font-size: 13px; margin-top: 12px; line-height: 1.5; }
+    .footer-col h4 { color: rgba(255,255,255,0.6); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; }
+    .footer-col a { display: block; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 13px; margin-bottom: 9px; }
+    .footer-col a:hover { color: #00b4d8; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.3); flex-wrap: wrap; gap: 10px; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 28px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .products-grid { grid-template-columns: 1fr 1fr; }
+      .nav-links { gap: 12px; }
     }
-    .btn-home:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.75);
-      color: #fff;
+    @media (max-width: 480px) {
+      .products-grid { grid-template-columns: 1fr; }
     }
-    .btn-home svg {
-      width: 14px; height: 14px;
-      stroke: currentColor;
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      flex-shrink: 0;
-    }
-    .nav-links { gap: 22px; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.5s ease forwards; }
   </style>
 </head>
 <body>
 
 <nav class="navbar">
   <a href="#" class="nav-logo">
-    <img src="https://pmps.com.mx/wp-content/uploads/2026/01/Logo-Negro-copia-120x69.png"
-         alt="PMPS" style="height:34px;filter:brightness(0) invert(1);display:block;" />
+    <img src="https://pmps.com.mx/wp-content/uploads/2026/01/Logo-Negro-copia-120x69.png" alt="PMPS" style="height:34px;filter:brightness(0) invert(1);" />
   </a>
   <ul class="nav-links">
     <li><a href="#catalogo">Catálogo</a></li>
@@ -68,4 +118,84 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-badge">✦ Distribuido por Operadora Química Menlun</div>
-    <h1>Funcionalidad y <span>
+    <h1>Funcionalidad y <span>asistencia oportuna</span></h1>
+    <p>Fabricante de productos químicos especializados para limpieza y desinfección de plantas procesadoras de alimentos, bebidas, farmacéuticos e institucional.</p>
+    <div class="hero-btns">
+      <a href="#catalogo" class="btn-primary">📦 Ver catálogo completo</a>
+      <a href="#servicios" class="btn-outline">🔬 Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="catalogo">
+  <div class="section-label">Catálogo de productos</div>
+  <div class="catalogo-header">
+    <div>
+      <div class="section-title" style="margin-bottom:4px">Más de 70 productos especializados</div>
+      <p id="counter" class="counter">Cargando productos...</p>
+    </div>
+    <div class="search-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"/></svg>
+      <input type="text" id="buscador" placeholder="Buscar por nombre o tipo..." />
+    </div>
+  </div>
+  <div class="filters" id="filtros"></div>
+  <div class="products-grid" id="productos-grid">
+    <div style="color:#94a3b8;text-align:center;padding:60px;grid-column:1/-1">Cargando catálogo...</div>
+  </div>
+</section>
+
+<section class="section section-dark" id="servicios">
+  <div class="section-label">Oferta de valor</div>
+  <div class="section-title">Más que un proveedor, un socio estratégico</div>
+  <div class="section-sub">Nuestro modelo de atención incluye visitas técnicas, capacitaciones, auditorías y equipo en comodato sin costo adicional.</div>
+  <div class="servicios-grid">
+    <div class="serv-card"><div class="serv-icon">🎓</div><div class="serv-nombre">Capacitaciones</div><div class="serv-desc">Hasta 12 temas: Limpieza y Desinfección, BPM, Manejo de Químicos, Defensa Alimentaria, Limpieza CIP y más. Sin costo para el cliente.</div></div>
+    <div class="serv-card"><div class="serv-icon">🔬</div><div class="serv-nombre">Asesorías técnicas</div><div class="serv-desc">Visitas de servicio con reporte por visita, plan de acción para áreas de oportunidad y soporte en validación de limpiezas.</div></div>
+    <div class="serv-card"><div class="serv-icon">📋</div><div class="serv-nombre">Auditorías FSSC 22000</div><div class="serv-desc">Contacto directo con auditor certificado. Asesoría personalizada, auditoría diagnóstico y capacitación en FSSC 22000.</div></div>
+    <div class="serv-card"><div class="serv-icon">⚙️</div><div class="serv-nombre">Equipo en comodato</div><div class="serv-desc">Espumadores fijos y móviles, dosificadores manuales, equipo especializado de dosificación y kit de titulación.</div></div>
+    <div class="serv-card"><div class="serv-icon">🔍</div><div class="serv-nombre">Validaciones de limpieza</div><div class="serv-desc">Validación de sistemas CIP: flujos, videoscopía de puntos muertos, termografías de tuberías y tanques. Elaboración de POES.</div></div>
+    <div class="serv-card"><div class="serv-icon">📄</div><div class="serv-nombre">Documentación técnica</div><div class="serv-desc">HDT, MSDS, certificados de calidad, retos microbianos, CFR 21 FDA, carta garantía, declaraciones de no metales pesados y no alérgenos.</div></div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="section-label">Logística</div>
+  <div class="section-title">Entrega garantizada en toda la república</div>
+  <div class="section-sub">Al ser fabricantes directos contamos con stock permanente y cumplimiento de todos los lineamientos de entrega de productos químicos.</div>
+  <div class="entregas-grid">
+    <div class="ent-card"><div class="ent-icon">⚡</div><div class="ent-val">24–48 h</div><div class="ent-lbl">Tiempo de entrega hábil</div></div>
+    <div class="ent-card"><div class="ent-icon">🗺️</div><div class="ent-val">32</div><div class="ent-lbl">Estados de cobertura</div></div>
+    <div class="ent-card"><div class="ent-icon">📦</div><div class="ent-val">100%</div><div class="ent-lbl">Stock disponible</div></div>
+    <div class="ent-card"><div class="ent-icon">🏭</div><div class="ent-val">Directo</div><div class="ent-lbl">Fabricante a cliente</div></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <img src="https://pmps.com.mx/wp-content/uploads/2026/01/Logo-Negro-copia-120x69.png" alt="PMPS" style="height:38px;filter:brightness(0) invert(1);opacity:0.85;" />
+      <p class="footer-tagline">Fabricante de productos químicos especializados para la limpieza e inocuidad de plantas industriales.<br/><br/>Distribuido por <strong style="color:rgba(255,255,255,0.7)">Operadora Química Menlun</strong>.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Portafolio</h4>
+      <a href="#catalogo">Catálogo de productos</a>
+      <a href="#servicios">Servicios y asesorías</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="mailto:josecarlos.gonzalez@pmpsquimicos.com">✉ josecarlos.gonzalez@pmpsquimicos.com</a>
+      <a href="mailto:info@pmpsquimicos.com">✉ info@pmpsquimicos.com</a>
+      <a href="tel:+525567845354">📞 +52 55 6784 5354</a>
+      <a href="https://pmps.com.mx/" style="color:#00b4d8;font-weight:600;">🌐 Visitar pmps.com.mx →</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 PMPS · Operadora Química Menlun · Todos los derechos reservados</span>
+    <span>ISO 22000:2018 · NSF · OMRI · COFEPRIS · KMD Kosher</span>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
