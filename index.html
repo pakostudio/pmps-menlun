@@ -3,10 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PMPS · Funcionalidad y asistencia oportuna</title>
+  <title>PMPS · Portafolio Comercial</title>
   <meta name="description" content="Fabricante de productos químicos especializados para limpieza y desinfección. ISO 22000:2018. Distribuido por Operadora Química Menlun." />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%2300b4d8'/><text y='.9em' font-size='70' x='18'>💧</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://pmps.com.mx/wp-content/uploads/2025/12/cropped-PMPS-BLANCO-270x270.png" />
+  <style>
+    /* ── OVERRIDE: alinear fuente al sitio principal ── */
+    body { font-family: 'Inter', sans-serif; }
+    .nav-logo .logo-text { font-family: 'Inter', sans-serif; font-weight: 700; letter-spacing: 0; }
+
+    /* ── BOTÓN HOME ── */
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 18px;
+      background: transparent;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      border-radius: 6px;
+      color: rgba(255,255,255,0.9);
+      font-size: 12.5px;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .btn-home:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.75);
+      color: #fff;
+    }
+    .btn-home svg {
+      width: 14px; height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      flex-shrink: 0;
+    }
+
+    /* ── nav limpio: sólo Catálogo, Servicios y btn home ── */
+    .nav-links { gap: 22px; }
+  </style>
 </head>
 <body>
 
@@ -15,16 +58,18 @@
 ══════════════════════════════════════════ -->
 <nav class="navbar">
   <a href="#" class="nav-logo">
-    <div class="logo-icon">💧</div>
-    <span class="logo-text">PMPS<span class="logo-dot">.</span></span>
+    <img src="https://pmps.com.mx/wp-content/uploads/2026/01/Logo-Negro-copia-120x69.png"
+         alt="PMPS" style="height:34px;filter:brightness(0) invert(1);display:block;" />
   </a>
   <ul class="nav-links">
-    <li><a href="#nosotros">Nosotros</a></li>
-    <li><a href="#certificaciones">Certificaciones</a></li>
     <li><a href="#catalogo">Catálogo</a></li>
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#clientes">Clientes</a></li>
-    <li><a href="#contacto" class="nav-cta">Contactar</a></li>
+    <li>
+      <a href="https://pmps.com.mx/" class="btn-home">
+        <svg viewBox="0 0 24 24"><path d="M3 9.75L12 3l9 6.75V20a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9.75z"/><path d="M9 21V12h6v9"/></svg>
+        pmps.com.mx
+      </a>
+    </li>
   </ul>
 </nav>
 
@@ -45,79 +90,9 @@
       <a href="#catalogo" class="btn-primary">
         📦 Ver catálogo completo
       </a>
-      <a href="#contacto" class="btn-outline">
-        📞 Contactar ahora
+      <a href="#servicios" class="btn-outline">
+        🔬 Ver servicios
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     NOSOTROS
-══════════════════════════════════════════ -->
-<section class="section section-alt" id="nosotros">
-  <div class="section-label">Quiénes somos</div>
-  <div class="section-title">Filosofía FIT CLEANING</div>
-  <div class="section-sub">
-    Empresa certificada ISO 22000:2018 con bodegas en las zonas industriales
-    más importantes de México.
-  </div>
-
-  <div class="mvv-grid">
-    <div class="mvv-card">
-      <div class="lbl">Visión</div>
-      <div class="val">Inocuidad fácil</div>
-      <div class="desc">Líderes en soluciones de limpieza industrial accesibles y efectivas para toda la república.</div>
-    </div>
-    <div class="mvv-card">
-      <div class="lbl">Misión</div>
-      <div class="val">Generar valor</div>
-      <div class="desc">Productos y servicios que protegen los procesos productivos y la seguridad alimentaria.</div>
-    </div>
-    <div class="mvv-card">
-      <div class="lbl">Valores</div>
-      <div class="val">Actitud empática</div>
-      <div class="desc">Servicio centrado en el cliente, con acompañamiento técnico y capacitación continua.</div>
-    </div>
-  </div>
-
-  <div class="filosofia-box">
-    <p>
-      "Que nuestros clientes puedan ocuparse en otros temas — nosotros
-      nos encargamos de la limpieza e inocuidad de su planta."
-    </p>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     CERTIFICACIONES
-══════════════════════════════════════════ -->
-<section class="section" id="certificaciones">
-  <div class="section-label">Certificaciones</div>
-  <div class="section-title">Avalados por los estándares más exigentes</div>
-  <div class="section-sub">
-    Todos nuestros productos cuentan con documentación técnica completa:
-    HDT, MSDS, certificados de calidad, CFR 21 FDA, declaración de no metales pesados y no alérgenos.
-  </div>
-
-  <div class="cert-grid">
-    <div class="cert-badge">
-      <span class="cert-icon">🏅</span> ISO 22000:2018
-    </div>
-    <div class="cert-badge">
-      <span class="cert-icon">✅</span> NSF
-    </div>
-    <div class="cert-badge">
-      <span class="cert-icon">🌿</span> OMRI Listed — For Organic Use
-    </div>
-    <div class="cert-badge">
-      <span class="cert-icon">🏥</span> COFEPRIS
-    </div>
-    <div class="cert-badge">
-      <span class="cert-icon">⭐</span> KMD Kosher México
-    </div>
-    <div class="cert-badge">
-      <span class="cert-icon">🥛</span> Miembro CANILEC
     </div>
   </div>
 </section>
@@ -129,7 +104,7 @@
   <div class="section-label">Catálogo de productos</div>
   <div class="catalogo-header">
     <div>
-      <div class="section-title" style="margin-bottom:4px">Más de 40 productos especializados</div>
+      <div class="section-title" style="margin-bottom:4px">Más de 70 productos especializados</div>
       <p id="counter" class="counter">Cargando productos...</p>
     </div>
     <div class="search-wrapper">
@@ -249,38 +224,14 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     CLIENTES
+     FOOTER
 ══════════════════════════════════════════ -->
-<section class="section" id="clientes">
-  <div class="section-label">Clientes satisfechos</div>
-  <div class="section-title" style="text-align:center">Empresas que confían en nosotros</div>
-  <div class="section-sub" style="text-align:center;margin:10px auto 36px">
-    Parte de nuestra cartera de clientes en industria alimentaria,
-    farmacéutica, bebidas e institucional.
-  </div>
-
-  <div class="clientes-grid">
-    <div class="cliente-chip">LALA</div>
-    <div class="cliente-chip">Kerry</div>
-    <div class="cliente-chip">Reckitt</div>
-    <div class="cliente-chip">Ingredion</div>
-    <div class="cliente-chip">Grupo Nutresa</div>
-    <div class="cliente-chip">Dilusa</div>
-    <div class="cliente-chip">Circle K</div>
-    <div class="cliente-chip">Praktiko</div>
-    <div class="cliente-chip">Edulag</div>
-    <div class="cliente-chip">Jungle Group</div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     FOOTER / CONTACTO
-══════════════════════════════════════════ -->
-<footer id="contacto">
+<footer id="footer">
   <div class="footer-grid">
     <div>
       <div class="footer-brand">
-        <span class="logo-text">PMPS<span style="color:#00b4d8">.</span></span>
+        <img src="https://pmps.com.mx/wp-content/uploads/2026/01/Logo-Negro-copia-120x69.png"
+             alt="PMPS" style="height:38px;filter:brightness(0) invert(1);opacity:0.85;" />
       </div>
       <p class="footer-tagline">
         Fabricante de productos químicos especializados para la limpieza
@@ -289,12 +240,9 @@
       </p>
     </div>
     <div class="footer-col">
-      <h4>Navegación</h4>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#certificaciones">Certificaciones</a>
-      <a href="#catalogo">Catálogo</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#clientes">Clientes</a>
+      <h4>Portafolio</h4>
+      <a href="#catalogo">Catálogo de productos</a>
+      <a href="#servicios">Servicios y asesorías</a>
     </div>
     <div class="footer-col">
       <h4>Contacto</h4>
@@ -307,8 +255,8 @@
       <a href="tel:+525567845354">
         📞 +52 55 6784 5354
       </a>
-      <a href="https://pmpsquimicos.com" target="_blank" rel="noopener">
-        🌐 pmpsquimicos.com
+      <a href="https://pmps.com.mx/" style="color:var(--cyan);font-weight:600;">
+        🌐 Visitar pmps.com.mx →
       </a>
     </div>
   </div>
